@@ -1,0 +1,58 @@
+// https://docs.prisma.io/docs/orm/v7/core-concepts/data-modeling
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+
+datasource db {
+  provider = "mysql"
+}
+
+model Admin {
+	id				Int @id @unique
+	type			String
+	permisions	String
+	name			String
+	surname		String
+	email			String
+	phone			String
+}
+
+model Customer {
+	id				Int @id @unique
+	name			String
+	surname		String
+	email			String 
+	phone			Int
+	birthday		DateTime @default(now())
+}
+
+model Product {
+  id_product	Int @id
+  name			String
+  description 	String?
+  price       	Int
+  stock			Int
+  createdAt   	DateTime @default(now())
+}
+
+model Orders {
+	id
+	total
+	date
+	status_fk		
+	id_user
+	id_sellsman
+}
+
+model OrderDetail {
+	id_detail
+	id_order_fk
+	id_product_fk
+}
+
+model OrderStatus {
+
+}
