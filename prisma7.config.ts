@@ -8,6 +8,6 @@ export default defineConfig({
   },
 
   datasource: {
-    url: env("DATABASE_URL"),
+    url: "mysql://root:admin@localhost:3306/online-shop",
   },
 });
