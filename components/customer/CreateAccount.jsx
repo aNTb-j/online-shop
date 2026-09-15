@@ -3,20 +3,30 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
+const CreateAccount = ({ users }) => {
 
-const Login = ({ users }) => {
+	const [user, setUser] = useState({user:false, password:false})
 
-	
-
-	const handleLogin = (newUser) => {
+	const handleLogin = () => {
 		
 	}
 
 	return (
 		<Form>
-			<Form.Group className="mb-3" controlId="formBasicLogin">
+			<Form.Group className="mb-3" controlId="formBasicEmail">
+				<Form.Label>Email</Form.Label>
+				<Form.Control type="email" placeholder="Username" />
+				<Form.Text className="text-muted">
+					We'll never share your email with anyone else.
+				</Form.Text>
+			</Form.Group>
+			
+			<Form.Group className="mb-3" controlId="formBasicUsername">
 				<Form.Label>Username</Form.Label>
 				<Form.Control type="text" placeholder="Username" />
+				<Form.Text className="text-muted">
+					We'll never share your email with anyone else.
+				</Form.Text>
 			</Form.Group>
 
 			<Form.Group className="mb-3" controlId="formBasicPassword">
@@ -43,4 +53,4 @@ const Login = ({ users }) => {
 	)
 }
 
-export default Login;
+export default CreateAccount;
