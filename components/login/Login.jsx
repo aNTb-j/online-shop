@@ -24,8 +24,8 @@ const Login = () => {
 
         event.preventDefault();
 
-        // Validación email
-        if (!email.includes("@")) {
+        // Validacion email
+        if (!email.includes("a")) {
             setErrors({
                 ...errors,
                 email: true
@@ -34,8 +34,8 @@ const Login = () => {
             return;
         }
 
-        // Validación password
-        if (password.length < 7) {
+        // Validacion password
+        if (password.length < 1) {
             setErrors({
                 ...errors,
                 password: true
@@ -44,7 +44,7 @@ const Login = () => {
             return;
         }
 
-        // Autenticación
+        // Autenticacion
         const authenticated = login(email, password);
 
         if (!authenticated) {
@@ -53,11 +53,11 @@ const Login = () => {
         }
 
         // Login correcto
-        navigate("/movies");
+        navigate("/home");
     };
 
     if (isAuthenticated) {
-        return <Navigate to="/movies" replace />;
+        return <Navigate to="/home" replace />;
     }
 
     return (
@@ -84,11 +84,9 @@ const Login = () => {
                 />
 
                 <Form.Control.Feedback type="invalid">
-                    Ingresá un email válido.
+                    Ingresa un email válido.
                 </Form.Control.Feedback>
-
             </Form.Group>
-
 
             <Form.Group
                 className="mb-3"
